@@ -1,13 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Routes from "./Routes"
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import Routes from "./routes/index";
+import theme from "./styles/theme";
+import GlobalStyle from "./styles/global";
 
-const App = () => {
-  return (
-    <Router>
+const App: React.FC = () => (
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <BrowserRouter>
       <Routes />
-    </Router>
-  );
-};
+    </BrowserRouter>
+  </ThemeProvider>
+);
 
 export default App;

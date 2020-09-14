@@ -1,10 +1,12 @@
 import React from "react";
 
-const Login = () => {
+import { Container } from "./styles";
+
+const Login: React.FC = () => {
   return (
-    <div>
+    <Container>
       <h1>Login Page</h1>
-    </div>
+    </Container>
   );
 };
 
