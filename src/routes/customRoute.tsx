@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Redirect, RouteProps } from "react-router-dom";
+import { useAuth } from "../context/useAuth";
 
 interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
@@ -11,14 +12,14 @@ const CustomRoute: React.FC<CustomRouteProps> = ({
   component: Component,
   ...rest
 }) => {
-  const isSigned: boolean = false;
-
+  // const { auth } = useAuth();
   return (
     <Route
       {...rest}
       render={() =>
         isPrivate ? (
-          isSigned ? (
+          // {auth.logged} ? (
+          true ? (
             <Component />
           ) : (
             <Redirect to={{ pathname: "/login" }} />
