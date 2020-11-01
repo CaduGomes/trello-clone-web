@@ -1,24 +1,41 @@
 import React from "react";
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 import Task from "../Task";
-import { Container } from "./styles";
 import { IColumnProps } from "../../types";
+import {
+  Container,
+  TaskContainer,
+  Title,
+  Header,
+  Footer,
+} from "./styles";
 
-function Column({ column }: IColumnProps) {
+function Column({ column, index }: IColumnProps) {
   return (
-    <Container>
-      <h2>{column.title}</h2>
-      <Droppable droppableId={column.id}>
-        {(provided) => (
-          <div ref={provided.innerRef} {...provided.droppableProps}>
-            {column.tasks.map((task, index) => (
-              <Task key={task.id} task={task} index={index} />
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </Container>
+    <Draggable draggableId={column.id} index={index}>
+      {(provided) => (
+        <Container {...provided.draggableProps} ref={provided.innerRef}>
+          <Header {...provided.dragHandleProps}>
+            <Title>{column.title}</Title>
+            <p>...</p>
+          </Header>
+          <Droppable droppableId={column.id} type="task">
+            {(provided) => (
+              <TaskContainer
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+              >
+                {column.tasks.map((task, index) => (
+                  <Task key={task.id} task={task} index={index} />
+                ))}
+                {provided.placeholder}
+              </TaskContainer>
+            )}
+          </Droppable>
+          <Footer></Footer>
+        </Container>
+      )}
+    </Draggable>
   );
 }
 

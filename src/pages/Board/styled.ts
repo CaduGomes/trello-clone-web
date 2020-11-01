@@ -11,11 +11,11 @@ export const Screen = styled.div`
 
 export const HeaderContainer = styled.div`
   height: 36px;
-  border-bottom: 1px solid black;
 `;
 
 export const BoardContainer = styled.div`
   display: flex;
+  flex-direction: row;
   flex: 1;
-  background-color: #fff;
+  background-color:  #d29034;
 `;

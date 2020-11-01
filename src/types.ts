@@ -16,4 +16,5 @@ export interface ITaskProps {
 
 export interface IColumnProps {
   column: IColumn;
+  index: number;
 }
