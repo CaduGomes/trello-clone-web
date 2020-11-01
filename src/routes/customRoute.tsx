@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Redirect, RouteProps } from "react-router-dom";
+import Header from "../components/Header/index";
 import { useAuth } from "../context/useAuth";
 
 interface CustomRouteProps extends RouteProps {
@@ -20,7 +21,9 @@ const CustomRoute: React.FC<CustomRouteProps> = ({
         isPrivate ? (
           // {auth.logged} ? (
           true ? (
-            <Component />
+            <Header>
+              <Component />
+            </Header>
           ) : (
             <Redirect to={{ pathname: "/login" }} />
           )

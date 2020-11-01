@@ -6,6 +6,8 @@ import Signup from "../pages/Signup/index";
 import Dashboard from "../pages/Dashboard/index";
 import Home from "../pages/Home/index";
 import NotFound from "../pages/NotFound/index";
+import Board from "../pages/Board/index";
+
 
 const Router: React.FC = () => (
   <Switch>
@@ -16,6 +18,9 @@ const Router: React.FC = () => (
     <Route path={"/signup"} component={Signup} />
 
     <Route path={"/dashboard"} component={Dashboard} isPrivate />
+
+    <Route path={"/board"} component={Board} isPrivate />
+
 
     <Route path={"*"} component={NotFound} />
   </Switch>
