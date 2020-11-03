@@ -6,15 +6,20 @@ import { Draggable } from "react-beautiful-dnd";
 function Task({ task, index }: ITaskProps) {
   return (
     <Draggable draggableId={task.id} index={index}>
-      {(provided) => (
-        <Container
-          {...provided.dragHandleProps}
-          {...provided.draggableProps}
-          ref={provided.innerRef}
-        >
-          {task.content}
-        </Container>
-      )}
+      {(provided, snapshot) => {
+        console.log(snapshot.isDragging);
+        return (
+          <div
+            {...provided.dragHandleProps}
+            {...provided.draggableProps}
+            ref={provided.innerRef}
+          >
+            <Container isDragging={snapshot.isDragging}>
+              {task.content}
+            </Container>
+          </div>
+        );
+      }}
     </Draggable>
   );
 }

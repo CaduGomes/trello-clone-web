@@ -7,6 +7,8 @@ export const Container = styled.div`
   max-height: 400px;
   border-radius: 4px;
   padding: 10px;
+  /* transform: skewX(-5deg);
+  transform: skewY(5deg) skewX(-5deg); */
 `;
 
 export const TaskContainer = styled.div``;
@@ -28,7 +30,7 @@ export const Icon = styled.img`
   width: 38;
   height: 38;
   fill: #808a9d;
-`
+`;
 
 export const Title = styled.p`
   font-size: 14px;
