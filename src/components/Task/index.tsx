@@ -7,7 +7,6 @@ function Task({ task, index }: ITaskProps) {
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => {
-        console.log(snapshot.isDragging);
         return (
           <div
             {...provided.dragHandleProps}

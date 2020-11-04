@@ -1,17 +1,29 @@
 import styled from "styled-components";
+import { IPropsWithDragging } from "../../types";
 
-export const Container = styled.div`
-  background-color: #ebecf0;
+export const Container = styled.div<IPropsWithDragging>`
   margin: 5px 0px 15px 5px;
+  background-color: #ebecf0;
   width: 250px;
-  max-height: 400px;
+  height: fit-content;
   border-radius: 4px;
   padding: 10px;
-  /* transform: skewX(-5deg);
-  transform: skewY(5deg) skewX(-5deg); */
+  transform: ${(props) => (props.isDragging ? `rotate(5deg)` : "")};
 `;
 
-export const TaskContainer = styled.div``;
+export const TaskContainer = styled.div`
+  display: flex;
+  flex: 1;
+  height: 100%;
+  flex-direction: column;
+`;
+
+export const ProviderContainer = styled.div`
+  display: flex;
+  flex: 1;
+  max-width: 250px;
+  margin: 3px;
+`;
 
 export const Header = styled.div`
   display: flex;

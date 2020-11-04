@@ -1,12 +1,20 @@
 export interface IColumn {
   id: string;
   title: string;
-  tasks: ITask[];
+  tasks: string[];
+}
+
+export interface IColumns {
+  [key: string]: IColumn;
 }
 
 export interface ITask {
   id: string;
   content: string;
+}
+
+export interface ITasks {
+  [key: string]: ITask;
 }
 
 export interface ITaskProps {
@@ -16,5 +24,10 @@ export interface ITaskProps {
 
 export interface IColumnProps {
   column: IColumn;
+  tasks: ITask[];
   index: number;
+}
+
+export interface IPropsWithDragging {
+  readonly isDragging: boolean;
 }

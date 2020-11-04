@@ -8,32 +8,42 @@ import {
   Title,
   Header,
   Footer,
+  ProviderContainer,
 } from "./styles";
 
-function Column({ column, index }: IColumnProps) {
+function Column({ column, index, tasks }: IColumnProps) {
   return (
     <Draggable draggableId={column.id} index={index}>
-      {(provided) => (
-        <Container {...provided.draggableProps} ref={provided.innerRef}>
-          <Header {...provided.dragHandleProps}>
-            <Title>{column.title}</Title>
-            <p>...</p>
-          </Header>
+      {(provided, snapshot) => (
+        <ProviderContainer
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
+          ref={provided.innerRef}
+        >
           <Droppable droppableId={column.id} type="task">
             {(provided) => (
-              <TaskContainer
+              <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
+                style={{ display: "flex", flex: 1 }}
               >
-                {column.tasks.map((task, index) => (
-                  <Task key={task.id} task={task} index={index} />
-                ))}
-                {provided.placeholder}
-              </TaskContainer>
+                <Container isDragging={snapshot.isDragging}>
+                  <Header>
+                    <Title>{column.title}</Title>
+                    <p>...</p>
+                  </Header>
+                  <TaskContainer>
+                    {tasks.map((task, index) => (
+                      <Task key={task.id} task={task} index={index} />
+                    ))}
+                    {provided.placeholder}
+                  </TaskContainer>
+                  <Footer></Footer>
+                </Container>
+              </div>
             )}
           </Droppable>
-          <Footer></Footer>
-        </Container>
+        </ProviderContainer>
       )}
     </Draggable>
   );
