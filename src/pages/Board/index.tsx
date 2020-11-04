@@ -2,69 +2,32 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   HeaderContainer,
   Screen,
-  BoardContainer,
   AddColumnOpenButton,
   AddColumnContainer,
   InputAddColumn,
   AddColumnButton,
   CloseAddColumnIcon,
-  Teste,
   AddColumnButtonContainer,
 } from "./styled";
 import StickyBox from "react-sticky-box";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import ColumnComponent from "../../components/Column/index";
-import { IColumns, ITasks } from "../../types";
-
-const initialColumns: IColumns = {
-  "column-0": {
-    id: "column-0",
-    title: "To do",
-    tasks: ["task-0", "task-1"],
-  },
-  "column-1": {
-    id: "column-1",
-    title: "To do 1",
-    tasks: ["task-2", "task-3"],
-  },
-};
-
-const initialTasks: ITasks = {
-  "task-0": {
-    id: "task-0",
-    content: "xesquedele",
-  },
-  "task-1": {
-    id: "task-1",
-    content: "xesquedele 1",
-  },
-  "task-2": {
-    id: "task-2",
-    content: "xesquedele 2",
-  },
-  "task-3": {
-    id: "task-3",
-    content: "xesquedele 3",
-  },
-};
-
-const initialColumnsOrders = ["column-0", "column-1"];
+import { useColumns } from "../../context/useColumns";
 
 function Board() {
-  const [columns, setColumns] = useState(initialColumns);
-  const [tasks, setTasks] = useState(initialTasks);
-  const [columnsOrder, setColumnsOrder] = useState(initialColumnsOrders);
+  const { columns, setColumns, setColumnsOrder, columnsOrder } = useColumns();
   const [addVisibleColumnButton, setAddVisibleColumnButton] = useState(false);
   const [addColumnText, setAddColumnText] = useState("");
+
   const wrapperRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const clickListener = (e: MouseEvent) => {
       if (
         !(wrapperRef.current! as any)?.contains(e.target) &&
         addVisibleColumnButton
       ) {
-        setAddVisibleColumnButton(false); // using optional chaining here, change to onClose && onClose(), if required
+        setAddVisibleColumnButton(false); 
       }
     };
 
@@ -176,12 +139,10 @@ function Board() {
               >
                 {columnsOrder.map((columnId, index) => {
                   const column = columns[columnId];
-                  const task = column.tasks.map((taskId) => tasks[taskId]);
                   return (
                     <ColumnComponent
                       key={column.id}
                       column={column}
-                      tasks={task}
                       index={index}
                     />
                   );

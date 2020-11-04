@@ -24,7 +24,6 @@ export interface ITaskProps {
 
 export interface IColumnProps {
   column: IColumn;
-  tasks: ITask[];
   index: number;
 }
 

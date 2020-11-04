@@ -13,13 +13,6 @@ export const HeaderContainer = styled.div`
   height: 36px;
 `;
 
-export const BoardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  background-color: #d29034;
-`;
-
 export const AddColumnOpenButton = styled.button`
   display: flex;
   height: 35px;
@@ -28,7 +21,7 @@ export const AddColumnOpenButton = styled.button`
   width: 264px;
   border: 0px;
   color: #fff;
-  margin: 10px;
+  margin-left: 5px;
   padding: 10px;
   background-color: #ddab65;
   &:hover {
@@ -45,8 +38,8 @@ export const AddColumnContainer = styled.div<ContainerProps>`
   width: 264px;
   border-radius: 3px;
   height: 75px;
+  margin-left: 5px;
   padding: 5px;
-  margin: 1%;
 `;
 
 export const InputAddColumn = styled.input`
@@ -79,11 +72,4 @@ export const CloseAddColumnIcon = styled.img`
   height: 20px;
   margin-left: 10px;
   width: 20px;
-`;
-
-export const Teste = styled.div`
-  display: flex;
-  flex: 1;
-  height: 100%;
-  width: 100%;
 `;
