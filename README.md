@@ -2,7 +2,7 @@
 # Trello Clone
 > Clone do Trello para aplicar Typescript, Styled-Components.
 
-# Bibliotecas utilizadas
+## Bibliotecas utilizadas
 
 1. Styled-components
 2. Typescript
