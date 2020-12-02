@@ -1,8 +1,11 @@
+# :construction::warning: Site em produção :warning::construction:
+
+
 
 # Trello Clone
 > Clone do Trello para aplicar Typescript, Styled-Components.
 
-## Bibliotecas utilizadas
+## :pushpin: Bibliotecas utilizadas
 
 1. Styled-components
 2. Typescript
@@ -13,7 +16,7 @@
 
 ![](../header.png)
 
-## Instalação
+## :construction_worker: Instalação
 
 Clone o projeto
 
