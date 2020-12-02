@@ -3,7 +3,7 @@
 
 
 # Trello Clone
-> Clone do Trello para aplicar Typescript, Styled-Components.
+> Clone do Trello para aplicar Typescript e Styled-Components.
 
 ## :pushpin: Bibliotecas utilizadas
 
